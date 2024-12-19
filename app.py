@@ -19,8 +19,8 @@ st.title('Stock Breakout Strategy Analyzer')
 
 # A custom Streamlit fragment to add a reusable download button without refreshing the app
 @st.fragment
-def download_button_no_refresh(filename, file_content):
-    st.download_button(filename, file_content)
+def download_button_no_refresh(label, data, file_name, mime):
+    st.download_button(label=label, data=data, file_name=file_name, mime=mime)
 
 # Function to fetch stock data using Yahoo Finance
 def get_stock_data(ticker, start_date, end_date):
@@ -212,8 +212,10 @@ if st.sidebar.button('Generate Report', key='generate_report_button'):
                         # Provide a download link for the results
                         csv_data = results_df.to_csv(index=False).encode('utf-8')
                         download_button_no_refresh(
-                            f"{ticker}_breakout_analysis.csv",
-                            csv_data
+                                label="Download Results CSV",
+                                data=csv_data,
+                                file_name=f"{ticker}_breakout_analysis.csv",
+                                mime="text/csv"
                         )
                     else:
                         st.warning(f'No breakout conditions found for {ticker} with the given parameters.')
