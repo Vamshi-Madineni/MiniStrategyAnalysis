@@ -157,6 +157,14 @@ col1, col2 = st.sidebar.columns([3, 1])
 with col1:
     holding_period = st.number_input('Holding Period (Days)', value=10, min_value=1)
 
+# Validate inputs
+if start_date >= end_date:
+    st.sidebar.error("Start date must be earlier than the end date.")
+if end_date > datetime.now().date():
+    st.sidebar.error("End date cannot be in the future.")
+if not tickers:
+    st.sidebar.error('Please enter at least one stock ticker to proceed.')
+
 # Generate report upon button click
 if st.sidebar.button('Generate Report', key='generate_report_button'):
     if tickers:
