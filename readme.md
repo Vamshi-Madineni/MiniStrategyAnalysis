@@ -1,4 +1,5 @@
 `MiniStrategyAnalysis` is a Python-based stock breakout strategy analyzer built with Streamlit, Yahoo Finance, Plotly, and Pandas. It allows users to analyze stocks using a breakout strategy, view key metrics, and download results. The app provides stock data visualizations and detailed analysis, including summary statistics and trade results.
+Project Web URL: https://breakoutanalyser.streamlit.app/
 
 
 https://github.com/user-attachments/assets/f732cd88-596b-433b-80f3-7caced2e1691
